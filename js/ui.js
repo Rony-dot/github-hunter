@@ -1,12 +1,12 @@
 class UI {
-    constructor(){
+    constructor() {
         this.profile = document.querySelector('#profile');
     }
-    showProfile(user){
-        console.log("received in UI.js file... "+user)
+    showProfile(user) {
+        console.log("received in UI.js file... " + user)
         console.log(user)
         this.profile.innerHTML =
-        `<div class="card text-white">
+            `<div class="card text-white">
             <div class="row">
                 <div class="card-header col-md-3 d-grid gap-2 mx-auto py-3">
                     <img src="${user.avatar_url}" style="max-width:300px !important; max-height:300px !important" alt="" class="mx-auto img-fluid rounded-circle">
@@ -19,12 +19,20 @@ class UI {
                     <span class="badge bg-success">Followers: ${user.followers}</span>
                     <span class="badge bg-info">Following: ${user.following}</span>
                     <br><br>
-                    <ul className="list-group" style="padding:0">
-                        <li class="list-group-item">Bio: ${user.bio}</li>
-                        <li class="list-group-item">Repos: ${user.repos_url}</li>
-                        <li class="list-group-item ">Gists: ${user.gists_url}</li>
-                        <li class="list-group-item">Starred: ${user.starred_url}</li>
-                        <li class="list-group-item">Member Since: ${user.created_at}</li>
+                    <ul class="list-group" style="padding:0">
+                        <li class="list-group-item">Bio: ${user.bio? user.bio : "no bio"}</li>
+                        <li class="list-group-item">Repos:
+                         <a href="${user.repos_url}" class="btn btn-info btn-sm">click</a>
+                         </li>
+                        <li class="list-group-item ">Gists:
+                        <a href="${user.gists_url}" class="btn btn-info btn-sm">click</a>
+                        </li>
+                        <li class="list-group-item">Starred:
+                        <a href="${user.starred_url}" class="btn btn-info btn-sm">click</a>
+                        </li>
+                        <li class="list-group-item">Member Since:
+                        <a href="${user.created_at}" class="btn btn-info btn-sm">click</a>
+                        </li>
                     </ul>
                 </div>
             </div>
